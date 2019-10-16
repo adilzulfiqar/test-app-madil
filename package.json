@@ -1,0 +1,40 @@
+{
+  "name": "task",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.19.0",
+    "bootstrap": "^4.3.1",
+    "express": "^4.17.1",
+    "nodemon": "^1.19.4",
+    "path": "^0.12.7",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.2.0",
+    "reactstrap": "^8.0.1"
+  },
+  "scripts": {
+    "dev": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "server": "nodemon server/index.js",
+    "start": "node server/index.js"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
