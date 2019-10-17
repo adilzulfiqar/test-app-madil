@@ -27,6 +27,57 @@ function BForm () {
   })
   const [tableBody, settableBody] = useState([])
   const [locaion, setLocaion] = useState([])
+  const [formData, setformData] = useState({
+    location: '',
+    contactPerson: '',
+    contactNumber: '',
+    topic: '',
+    expectedStartDate: '',
+    expectedCloseDate: '',
+    type: '',
+    lead: '',
+    currency: '',
+    marketingCompaign: '',
+    salesOpportunityStage: '',
+    salesOpportunityProbability: '',
+    expectedRevenue: '',
+    status: '',
+    reference: '',
+    user: '',
+    remarkes: '',
+    salesOpportunityLines: []
+  })
+
+  useEffect(
+    () => {
+      // action on update of movies
+      console.log(formData)
+    },
+    [formData.salesOpportunityLines]
+  )
+
+  // console.log(formData)
+
+  // const formata = {
+  //   location: '',
+  //   contactPerson: '',
+  //   contactNumber: '',
+  //   topic: '',
+  //   expectedStartDate: '',
+  //   expectedCloseDate: '',
+  //   type: '',
+  //   lead: '',
+  //   currency: '',
+  //   marketingCompaign: '',
+  //   salesOpportunityStage: '',
+  //   salesOpportunityProbability: '',
+  //   expectedRevenue: '',
+  //   status: '',
+  //   reference: '',
+  //   user: '',
+  //   remarkes: '',
+  //   salesOpportunityLines: []
+  // }
 
   const tableObj = {
     quality: '',
@@ -90,7 +141,7 @@ function BForm () {
       <br />
       <br />
       <br />
-      <Form>
+      <Form method='post'>
         <Row form>
           <Col md={2}>
             <Label for='location'>Location</Label>
@@ -104,6 +155,12 @@ function BForm () {
                 placeholder='Location'
                 list='locations'
                 onFocus={getLocations}
+                onChange={e => {
+                  setformData({
+                    ...formData,
+                    location: e.target.value
+                  })
+                }}
               />
               <datalist
                 id='locations'
@@ -127,6 +184,12 @@ function BForm () {
                 name='contactPerson'
                 id='contactPerson'
                 placeholder='contactPerson'
+                onChange={e => {
+                  setformData({
+                    ...formData,
+                    contactPerson: e.target.value
+                  })
+                }}
               />
             </FormGroup>
           </Col>
@@ -142,6 +205,12 @@ function BForm () {
                 name='contactNumber'
                 id='contactNumber'
                 placeholder='Contact Number'
+                onChange={e => {
+                  setformData({
+                    ...formData,
+                    contactNumber: e.target.value
+                  })
+                }}
               />
             </FormGroup>
           </Col>
@@ -152,7 +221,18 @@ function BForm () {
           </Col>
           <Col md={10}>
             <FormGroup>
-              <Input type='text' name='topic' id='topic' placeholder='topic' />
+              <Input
+                type='text'
+                name='topic'
+                id='topic'
+                placeholder='topic'
+                onChange={e => {
+                  setformData({
+                    ...formData,
+                    topic: e.target.value
+                  })
+                }}
+              />
             </FormGroup>
           </Col>
         </Row>
@@ -160,13 +240,33 @@ function BForm () {
           <Col md={2}>Expected Sale Date</Col>
           <Col md={4}>
             <FormGroup>
-              <Input type='date' name='startDate' id='startDate' />
+              <Input
+                type='date'
+                name='startDate'
+                id='startDate'
+                onChange={e => {
+                  setformData({
+                    ...formData,
+                    expectedStartDate: e.target.value
+                  })
+                }}
+              />
             </FormGroup>
           </Col>
           <Col md={2}>Closed Date</Col>
           <Col md={4}>
             <FormGroup>
-              <Input type='date' name='closeDate' id='closeDate' />
+              <Input
+                type='date'
+                name='closeDate'
+                id='closeDate'
+                onChange={e => {
+                  setformData({
+                    ...formData,
+                    expectedCloseDate: e.target.value
+                  })
+                }}
+              />
             </FormGroup>
           </Col>
         </Row>
@@ -174,13 +274,33 @@ function BForm () {
           <Col md={2}>Lead</Col>
           <Col md={4}>
             <FormGroup>
-              <Input type='text' name='lead' id='lead' />
+              <Input
+                type='text'
+                name='lead'
+                id='lead'
+                onChange={e => {
+                  setformData({
+                    ...formData,
+                    lead: e.target.value
+                  })
+                }}
+              />
             </FormGroup>
           </Col>
           <Col md={2}>Type</Col>
           <Col md={4}>
             <FormGroup>
-              <Input type='text' name='type' id='type' />
+              <Input
+                type='text'
+                name='type'
+                id='type'
+                onChange={e => {
+                  setformData({
+                    ...formData,
+                    type: e.target.value
+                  })
+                }}
+              />
             </FormGroup>
           </Col>
         </Row>
@@ -188,13 +308,33 @@ function BForm () {
           <Col md={2}>Currency</Col>
           <Col md={4}>
             <FormGroup>
-              <Input type='text' name='currency' id='currency' />
+              <Input
+                type='text'
+                name='currency'
+                id='currency'
+                onChange={e => {
+                  setformData({
+                    ...formData,
+                    currency: e.target.value
+                  })
+                }}
+              />
             </FormGroup>
           </Col>
           <Col md={2}>Marketing Compaign</Col>
           <Col md={4}>
             <FormGroup>
-              <Input type='text' name='compaign' id='compaign' />
+              <Input
+                type='text'
+                name='compaign'
+                id='compaign'
+                onChange={e => {
+                  setformData({
+                    ...formData,
+                    marketingCompaign: e.target.value
+                  })
+                }}
+              />
             </FormGroup>
           </Col>
         </Row>
@@ -202,13 +342,33 @@ function BForm () {
           <Col md={2}>Sales Opportunity Stage</Col>
           <Col md={4}>
             <FormGroup>
-              <Input type='text' name='sostage' id='SOStage' />
+              <Input
+                type='text'
+                name='sostage'
+                id='SOStage'
+                onChange={e => {
+                  setformData({
+                    ...formData,
+                    salesOpportunityStage: e.target.value
+                  })
+                }}
+              />
             </FormGroup>
           </Col>
           <Col md={2}>Sales Opportunity Probability</Col>
           <Col md={4}>
             <FormGroup>
-              <Input type='text' name='SOProbability' id='SOProbability' />
+              <Input
+                type='text'
+                name='SOProbability'
+                id='SOProbability'
+                onChange={e => {
+                  setformData({
+                    ...formData,
+                    salesOpportunityProbability: e.target.value
+                  })
+                }}
+              />
             </FormGroup>
           </Col>
         </Row>
@@ -216,13 +376,33 @@ function BForm () {
           <Col md={2}>Expected Revenue</Col>
           <Col md={4}>
             <FormGroup>
-              <Input type='text' name='revenue' id='revenue' />
+              <Input
+                type='text'
+                name='revenue'
+                id='revenue'
+                onChange={e => {
+                  setformData({
+                    ...formData,
+                    expectedRevenue: e.target.value
+                  })
+                }}
+              />
             </FormGroup>
           </Col>
           <Col md={2}>Status</Col>
           <Col md={4}>
             <FormGroup>
-              <Input type='text' name='status' id='status' />
+              <Input
+                type='text'
+                name='status'
+                id='status'
+                onChange={e => {
+                  setformData({
+                    ...formData,
+                    status: e.target.value
+                  })
+                }}
+              />
             </FormGroup>
           </Col>
         </Row>
@@ -230,13 +410,33 @@ function BForm () {
           <Col md={2}>Reference</Col>
           <Col md={4}>
             <FormGroup>
-              <Input type='text' name='reference' id='reference' />
+              <Input
+                type='text'
+                name='reference'
+                id='reference'
+                onChange={e => {
+                  setformData({
+                    ...formData,
+                    reference: e.target.value
+                  })
+                }}
+              />
             </FormGroup>
           </Col>
           <Col md={2}>User</Col>
           <Col md={4}>
             <FormGroup>
-              <Input type='text' name='user' id='user' />
+              <Input
+                type='text'
+                name='user'
+                id='user'
+                onChange={e => {
+                  setformData({
+                    ...formData,
+                    user: e.target.value
+                  })
+                }}
+              />
             </FormGroup>
           </Col>
         </Row>
@@ -246,7 +446,17 @@ function BForm () {
           </Col>
           <Col md={10}>
             <FormGroup>
-              <Input type='textarea' name='text' id='remarks' />
+              <Input
+                type='textarea'
+                name='text'
+                id='remarks'
+                onChange={e => {
+                  setformData({
+                    ...formData,
+                    remarkes: e.target.value
+                  })
+                }}
+              />
             </FormGroup>
           </Col>
         </Row>
@@ -276,9 +486,8 @@ function BForm () {
                       name='quality'
                       id='quality'
                       onChange={e => {
-                        console.log('prev', tableObj)
                         tableObj.quality = e.target.value
-                        console.log('after', tableObj)
+                        // console.log('after', tableObj)
                       }}
                     />
                   </th>
@@ -288,10 +497,8 @@ function BForm () {
                       name='Code'
                       id='Code'
                       onChange={e => {
-                        console.log('prev', tableObj)
-
                         tableObj.code = e.target.value
-                        console.log(tableObj)
+                        // console.log(tableObj)
                       }}>
                       <option>1</option>
                       <option>2</option>
@@ -306,10 +513,8 @@ function BForm () {
                       name='desc'
                       id='desc'
                       onChange={e => {
-                        console.log('prev', tableObj)
-
                         tableObj.description = e.target.value
-                        console.log(tableObj)
+                        // console.log(tableObj)
                       }}
                     />
                   </td>
@@ -319,10 +524,8 @@ function BForm () {
                       name='currentPrice'
                       id='currentPrice'
                       onChange={e => {
-                        console.log('prev', tableObj)
-
                         tableObj.currentPrice = e.target.value
-                        console.log(tableObj)
+                        // console.log(tableObj)
                       }}
                     />
                   </td>
@@ -332,10 +535,8 @@ function BForm () {
                       name='unitPrice'
                       id='unitPrice'
                       onChange={e => {
-                        console.log('prev', tableObj)
-
                         tableObj.unitPrice = e.target.value
-                        console.log(tableObj)
+                        // console.log(tableObj)
                       }}
                     />
                   </td>
@@ -345,10 +546,8 @@ function BForm () {
                       name='textConsole'
                       id='textConsole'
                       onChange={e => {
-                        console.log('prev', tableObj)
-
                         tableObj.textConsole = e.target.value
-                        console.log(tableObj)
+                        // console.log(tableObj)
                       }}>
                       <option>1</option>
                       <option>2</option>
@@ -363,10 +562,8 @@ function BForm () {
                       name='something'
                       id='something'
                       onChange={e => {
-                        console.log('prev', tableObj)
-
                         tableObj.textSomthing = e.target.value
-                        console.log(tableObj)
+                        // console.log(tableObj)
                       }}
                     />
                   </td>
@@ -377,7 +574,7 @@ function BForm () {
                       id='unit'
                       onChange={e => {
                         tableObj.unit = e.target.value
-                        console.log(tableObj)
+                        // console.log(tableObj)
                       }}
                     />
                   </td>
@@ -447,7 +644,18 @@ function BForm () {
         </Row>
         <Row>
           <Col style={{ textAlign: 'right' }}>
-            <Button>Submit</Button> <Button>Cancle</Button>
+            <Button
+              onClick={e => {
+                e.preventDefault()
+                setformData({
+                  ...formData,
+                  salesOpportunityLines: tableBody
+                })
+                // document.querySelector('form').reset()
+              }}>
+              Submit
+            </Button>{' '}
+            <Button>Cancle</Button>
           </Col>
         </Row>
       </Form>
